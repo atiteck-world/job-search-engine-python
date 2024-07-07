@@ -16,3 +16,13 @@ A web-based job search engine that allows users to search for jobs by title or k
    ```bash
    git clone https://github.com/atiteck-world/job-search-engine-python.git
    cd job-search-engine
+2. **Install Packages**:
+   ```bash
+   pip install -r requirements.txt
+3. **Run**:
+   ```bash
+   python app.py
+   
+## Project Team
+Bismark Azumah Atiim and
+Obinna Hillary Ibekwe
