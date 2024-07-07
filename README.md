@@ -14,5 +14,5 @@ A web-based job search engine that allows users to search for jobs by title or k
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/atiteck-world/job-search-engine.git
+   git clone https://github.com/atiteck-world/job-search-engine-python.git
    cd job-search-engine
