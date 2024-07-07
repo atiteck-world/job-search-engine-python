@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search Engine</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .banner {
+            background-image: url('{{ url_for('static', filename='images/banner.jpg') }}'); /* Replace with your banner image URL */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .footer .team-members {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Job Search Engine</a>
+</nav>
+<!-- Banner -->
+<div class="banner">
+    <div class="container">
+        <h1>Welcome to the Job Search Engine</h1>
+        <p>Your gateway to finding the perfect job</p>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="text-center my-4">Job Search Engine</h1>
+    <form class="form-row mb-4" action="/search" method="post">
+        <div class="col-2"></div>
+        <div class="col-7">
+            <input type="text" class="form-control" name="query" placeholder="Enter job title or keywords" value="{{ query }}" required>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    {% if suggestions %}
+    <div class="alert alert-info">
+        Showing results for:
+        <ul class="list-inline">
+            {% for suggestion in suggestions %}
+            <li class="list-inline-item">{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="results">
+        {% if jobs %}
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job.job_title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ job.company }}</h6>
+                        <p class="card-text">{{ job.description[:100] }}...</p>
+                        <a href="/job/{{ job.index }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        {% if query %}
+        <p>No jobs found for "{{ query }}".</p>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+<!-- Footer -->
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">© 2024 HMI - Job Search Engine. All rights reserved.</span>
+        <div class="team-members">
+            <strong>Team Members:</strong>
+            <span>Bismark Azumah Atiim and Hillary Obena Ibekwe</span>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

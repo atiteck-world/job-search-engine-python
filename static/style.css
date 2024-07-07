@@ -1,0 +1,76 @@
+/* Navbar styling */
+.navbar {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+}
+
+/* Container max-width and margin */
+.container {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/* Styling for the input field and button inline */
+.form-inline {
+    display: flex;
+    align-items: stretch; /* Ensures button and input are the same height */
+}
+
+.form-inline .form-control {
+    flex: 1;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    margin-right: 10px; /* Margin between input and button */
+    padding: 10px;
+}
+
+.form-inline button {
+    border-radius: 0;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px; /* Adjust if needed for space consistency */
+}
+
+/* Styling for the results section */
+.results {
+    margin-top: 20px;
+}
+
+/* Styling for individual cards */
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Padding inside the card */
+.card-body {
+    padding: 10px;
+}
+
+/* Styling for the card title */
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+/* Margin bottom for card text */
+.card-text {
+    margin-bottom: 10px;
+}
+
+/* Margin and styling for details page */
+.details-page {
+    margin-top: 20px;
+}
+
+/* Margin bottom for details header */
+.details-header {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Search Engine</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand navbar-dark bg-primary" href="/">Job Search Engine</a>
+</nav>
+<div class="container">
+  <h1 class="text-center my-4">Job Search Engine</h1>
+  <form class="form-row" action="/search" method="post">
+    <div class="col-2"></div>
+    <div class="col-7">
+      <input type="text" class="form-control" name="query" placeholder="Enter job title or keywords" value="{{ query }}" required>
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+
+  </form>
+  <div class="results">
+    {% if jobs %}
+    <div class="row">
+      {% for job in jobs %}
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.job_title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.company }}</h6>
+            <p class="card-text">{{ job.description[:100] }}...</p>
+            <a href="/job/{{ job.index }}" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    {% if query %}
+    <p>No jobs found for "{{ query }}".</p>
+    {% endif %}
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>
