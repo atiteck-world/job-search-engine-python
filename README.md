@@ -23,6 +23,5 @@ A web-based job search engine that allows users to search for jobs by title or k
    ```bash
    python app.py
    
-## Project Team
-Bismark Azumah Atiim and
-Obinna Hillary Ibekwe
+## Developer
+Bismark Azumah Atiim
